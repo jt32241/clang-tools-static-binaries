@@ -7,7 +7,7 @@ jobs:
     strategy:
       matrix:
         clang-version: [ 10, 15, 16 ]
-        os: [ linux ]
+        os: [ linux, ]
         include:
           - clang-version: 10
             release: llvm-project-10.0.1
@@ -33,7 +33,6 @@ jobs:
             bindir: '/build/bin'
             dotexe: ''
             shacmd: 'sha512sum'
-
     runs-on: ${{ matrix.runner }}
     env:
       COMMON_CMAKE_ARGS: '-DBUILD_SHARED_LIBS=OFF -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra"'
